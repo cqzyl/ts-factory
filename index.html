@@ -1,0 +1,44 @@
+<!--
+ * @Description: 
+ * @Author: ChenQiang
+ * @Date: 2023-11-06 17:07:32
+ * @LastEditors: ChenQiang
+ * @LastEditTime: 2023-11-07 09:49:05
+ * @FilePath: \index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Test Document</title>
+  <style>
+    #console_box {
+      background: #eee;
+    }
+    #console_box>li {
+      padding: 6px 10px;
+      background: #ddd;
+    }
+  </style>
+</head>
+<body>
+  <h3>
+    Console.log
+  </h3>
+  <ol id="console_box"></ol>
+  <script>
+    (function() {
+      const consoleLog = console.log;
+      function testConsoleLog (...agus) {
+        const p = document.createElement('li');
+        p.innerHTML = agus.toString();
+        console_box.appendChild(p);
+        return consoleLog(...agus);
+      }
+      console.log = testConsoleLog.bind(console);
+    })()
+  </script>
+  <script src="./src/index.ts"></script>
+</body>
+</html>
