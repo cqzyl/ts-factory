@@ -1,7 +1,7 @@
 {
   "name": "ts-factory",
   "version": "1.0.0",
-  "description": "",
+  "description": "Develop and test your `typescript` codes or tools. Preview and build to commonjs and esnext.",
   "main": "src/index.ts",
   "scripts": {
     "start": "ts-node ./src/index.ts",
@@ -16,5 +16,8 @@
     "rimraf": "^5.0.5",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
-  }
+  },
+  "keywords": [
+    "typescript"
+  ]
 }
