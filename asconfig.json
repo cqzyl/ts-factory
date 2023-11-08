@@ -1,0 +1,25 @@
+{
+  "entries": [
+    "./src/index.ts"
+  ],
+  "targets": {
+    "debug": {
+      "outFile": "dist/wasm/debug.wasm",
+      "textFile": "dist/wasm/debug.wat",
+      "sourceMap": true,
+      "debug": true
+    },
+    "release": {
+      "outFile": "dist/wasm/release.wasm",
+      "textFile": "dist/wasm/release.wat",
+      "sourceMap": true,
+      "optimizeLevel": 3,
+      "shrinkLevel": 0,
+      "converge": false,
+      "noAssert": false
+    }
+  },
+  "options": {
+    "bindings": "esm"
+  }
+}

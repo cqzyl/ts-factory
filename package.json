@@ -2,22 +2,40 @@
   "name": "ts-factory",
   "version": "1.0.0",
   "description": "Develop and test your `typescript` codes or tools. Preview and build to commonjs and esnext.",
-  "main": "src/index.ts",
+  "main": "dist/wasm/index.js",
   "scripts": {
     "start": "ts-node ./src/index.ts",
-    "browser": "parcel ./index.html",
+    "browser": "parcel ./index.html --dist-dir .parcel-cache",
     "build": "rimraf ./dist/commonjs && tsc --project tsconfig.commonjs.json",
-    "build:esnext": "rimraf ./dist/esnext && tsc --project tsconfig.esnext.json"
+    "build:esnext": "rimraf ./dist/esnext && tsc --project tsconfig.esnext.json",
+    "asbuild:debug": "asc src/index.ts --target debug",
+    "asbuild:release": "asc src/index.ts --target release",
+    "asbuild": "npm run asbuild:debug && npm run asbuild:release",
+    "asbrowser": "npx serve ./tests/index.html",
+    "astest": "node tests"
   },
   "author": "ChenQiang",
   "license": "ISC",
   "devDependencies": {
-    "parcel-bundler": "^1.12.5",
+    "@assemblyscript/loader": "^0.27.15",
+    "assemblyscript": "^0.27.15",
+    "ecmassembly": "v0.3.0-beta.0",
+    "parcel": "^2.0.0",
     "rimraf": "^5.0.5",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2"
   },
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/wasm/release.js",
+      "types": "./dist/wasm/release.d.ts"
+    }
+  },
   "keywords": [
     "typescript"
-  ]
+  ],
+  "engines": {
+    "node": ">= 16"
+  }
 }

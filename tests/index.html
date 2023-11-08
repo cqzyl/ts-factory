@@ -1,0 +1,22 @@
+<!--
+ * @Description: 
+ * @Author: ChenQiang
+ * @Date: 2023-11-06 17:07:32
+ * @LastEditors: ChenQiang
+ * @LastEditTime: 2023-11-08 10:23:26
+ * @FilePath: \tests\index.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wasm Test Document</title>
+</head>
+<body>
+  <script type="module">
+    import { add } from "../dist/wasm/release.js";
+    document.body.innerText = add(1, 2);
+  </script>
+</body>
+</html>
